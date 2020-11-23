@@ -6,7 +6,7 @@ This plugin adds an icon to the toolbar. When clicked, it completes the selected
 
 Also adds a link back to the current note.
 
-Tip : Use Ctrl+Shift+&larr to select the word (or part of word) to the left of the cursor, then click the icon to complete.
+Tip : Use Ctrl+Shift+← to select the word (or part of word) to the left of the cursor, then click the icon to complete.
 
 This plugin is experimental and comes with absolutely no warranty of any kind. Use at your own risk.
 
