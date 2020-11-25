@@ -17,25 +17,27 @@ joplin.plugins.register({
 					//console.info('Clic !', selectedText);
 
 					//Check if note already exists
-					var idLinkedNote = 0;
+					var idNotes = [];
+					var titleNotes = [];
+					var choiceList = "";
 					for (let i in notes.items){
 						//TODO : do a fuzzy search instead
 						if (notes.items[i].title.toLowerCase().slice(0, len_selection) === selectedText.toLowerCase()){
-							idLinkedNote = notes.items[i].id;	
-							const titleLinkedNote = notes.items[i].title;	
-							console.info('Found note with title ', notes.items[i].title, selectedText ,idLinkedNote);
-							const backlink = 'Linked from [' + currentNote.title + '](:/' + currentNote.id + ')';
-							const bodyLinkedNote = (await joplin.data.get(['notes', idLinkedNote.toString()], { fields: ['body'] })).body;
-							const newBodyLinkedNote = bodyLinkedNote + "\n" + backlink;
-							await joplin.data.put(['notes', idLinkedNote.toString()], null, { body: newBodyLinkedNote });
-
-							//const linkToNewNote = '[' + selectedText + '](:/' + idLinkedNote + ')';
-							const linkToNewNote = '[' + titleLinkedNote + '](:/' + idLinkedNote + ')';
-
-							await joplin.commands.execute('replaceSelection', linkToNewNote);
-							break;
+							idNotes.push(notes.items[i].id);
+							titleNotes.push(notes.items[i].title);
+							choiceList += notes.items[i].title + "\n";
 						}
+
 					}
+					var choice = prompt("Please choose :\n" + choiceList, "0");
+					const backlink = 'Linked from [' + currentNote.title + '](:/' + currentNote.id + ')';
+					const bodyLinkedNote = (await joplin.data.get(['notes', idNotes[choice].toString()], { fields: ['body'] })).body;
+					const newBodyLinkedNote = bodyLinkedNote + "\n" + backlink;
+					await joplin.data.put(['notes', idNotes[choice].toString()], null, { body: newBodyLinkedNote });
+
+					const linkToNewNote = '[' + titleNotes[choice] + '](:/' + idNotes[choice] + ')';
+
+					await joplin.commands.execute('replaceSelection', linkToNewNote);
 				}
 			},
 		});

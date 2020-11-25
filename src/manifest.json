@@ -1,9 +1,8 @@
 {
 	"manifest_version": 1,
-	"app_min_version": "1.4",
-	"name": "Complete link to note",
-	"description": "Links to the note with a title corresponding to the selected text.",
-	"version": "0.1",
+	"name": "complete_link",
+	"description": "Complete the selected text to a link",
+	"version": "1.0.0",
 	"author": "S73ph4n",
-	"homepage_url": "https://github.com/S73ph4n"
+	"homepage_url": ""
 }
