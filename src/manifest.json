@@ -1,7 +1,7 @@
 {
 	"manifest_version": 1,
-	"name": "complete_link",
-	"description": "Complete the selected text to a link",
+	"name": "GTD",
+	"description": "",
 	"version": "1.0.0",
 	"author": "S73ph4n",
 	"homepage_url": ""
