@@ -175,9 +175,9 @@ joplin.plugins.register({
 			},
 		});
 
-		joplin.views.toolbarButtons.create('makeInbox', ToolbarButtonLocation.EditorToolbar);
-		joplin.views.toolbarButtons.create('makeNextAction', ToolbarButtonLocation.EditorToolbar);
-		joplin.views.toolbarButtons.create('makeWaitingFor', ToolbarButtonLocation.EditorToolbar);
-		joplin.views.toolbarButtons.create('checkTasksStatus', ToolbarButtonLocation.EditorToolbar);
+		joplin.views.toolbarButtons.create('makeInbox','makeInbox', ToolbarButtonLocation.EditorToolbar);
+		joplin.views.toolbarButtons.create('makeNextAction','makeNextAction', ToolbarButtonLocation.EditorToolbar);
+		joplin.views.toolbarButtons.create('makeWaitingFor','makeWaitingFor', ToolbarButtonLocation.EditorToolbar);
+		joplin.views.toolbarButtons.create('checkTasksStatus','checkTasksStatus', ToolbarButtonLocation.EditorToolbar);
 	},
 });
