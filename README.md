@@ -1,7 +1,5 @@
 # Complete selected text to link
 
-![](demo_gif.gif)
-
 This plugin adds an icon to the toolbar. When clicked, it completes the selected text into a note title (in a markdown link).
 
 Also adds a link back to the current note.
@@ -9,6 +7,8 @@ Also adds a link back to the current note.
 Tip : Use Ctrl+Shift+← to select the word (or part of word) to the left of the cursor, then click the icon to complete.
 
 This plugin is experimental and comes with absolutely no warranty of any kind. Use at your own risk.
+
+![](demo_gif.gif)
 
 ## Joplin Plugin
 
