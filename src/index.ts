@@ -32,26 +32,27 @@ joplin.plugins.register({
 					}
 					//var choice = prompt("Please choose :\n" + choiceList, "0");
 
-					const handle = await dialogs.create();
+					const handle = await dialogs.create('completeLinkDialog');
 					await dialogs.setHtml(handle, "Please choose");
 					console.info(choiceList);
 					await dialogs.setButtons(handle, choiceList);
 
 					const choice = await dialogs.open(handle);
+					console.info(choice.id);
 
 					const backlink = 'Linked from [' + currentNote.title + '](:/' + currentNote.id + ')';
-					const linkedNote = (await joplin.data.get(['notes', choice.toString()], { fields: ['title','body'] }));
+					const linkedNote = (await joplin.data.get(['notes', choice.id], { fields: ['title','body'] }));
 					const titleLinkedNote = linkedNote.title;
 					const bodyLinkedNote = linkedNote.body;
 					const newBodyLinkedNote = bodyLinkedNote + "\n" + backlink;
-					await joplin.data.put(['notes', choice.toString()], null, { body: newBodyLinkedNote });
+					await joplin.data.put(['notes', choice.id], null, { body: newBodyLinkedNote });
 
-					const linkToNewNote = '[' + titleLinkedNote + '](:/' + choice + ')';
+					const linkToNewNote = '[' + titleLinkedNote + '](:/' + choice.id + ')';
 
 					await joplin.commands.execute('replaceSelection', linkToNewNote);
 				}
 			},
 		});
-		joplin.views.toolbarButtons.create('linkComplete', ToolbarButtonLocation.EditorToolbar);
+		joplin.views.toolbarButtons.create('linkComplete','linkComplete', ToolbarButtonLocation.EditorToolbar);
 	},
 });
